@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: homelab
+  namespace: argocd
+spec:
+  sourceRepos:
+    - 'https://github.com/creedasaurus/homelab'
+  destinations:
+    - namespace: 'argocd'
+      server: '*'
+    - namespace: 'cert-manager'
+      server: '*'
+    - namespace: 'default'
+      server: '*'
+    - namespace: 'example'
+      server: '*'
+    - namespace: 'kube-system'
+      server: '*'
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'
