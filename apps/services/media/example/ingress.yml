@@ -9,10 +9,11 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`example-asdf.vulf.haus`)
+    - match: Host(`example.local.vulf.haus`)
       kind: Rule
       services:
         - name: example
           port: 80
+
   tls:
     secretName: example-tls

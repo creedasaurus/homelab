@@ -5,8 +5,7 @@ metadata:
 spec:
   secretName: example-tls
   dnsNames:
-    - "vulf.haus"
-    - "*.vulf.haus"
+    - "example.local.vulf.haus"
   issuerRef:
-    name: letsencrypt-prod
+    name: letsencrypt-staging
     kind: ClusterIssuer

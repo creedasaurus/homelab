@@ -1,13 +1,13 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: apps
+  name: networking
 spec:
-  description: Applications General Project
+  description: Networking related resources
   sourceRepos:
     - "*"
   destinations:
-    - namespace: media
+    - namespace: cert-manager
       server: "*"
     - namespace: default
       server: "*"
