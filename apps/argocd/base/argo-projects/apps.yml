@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: apps
+spec:
+  description: Applications General Project
+  sourceRepos:
+  - '*'
+  destinations:
+  - namespace: media
+    server: '*'
+  - namespace: default
+    server: '*'
+
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  orphanedResources:
+    warn: false
