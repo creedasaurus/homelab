@@ -3,7 +3,7 @@ kind: Certificate
 metadata:
   name: cert
 spec:
-  secretName: example-tls-prod
+  secretName: example-tls
   dnsNames:
     - "example.local.vulf.haus"
   issuerRef:

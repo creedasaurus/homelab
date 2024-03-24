@@ -16,4 +16,4 @@ spec:
           port: 80
 
   tls:
-    secretName: example-tls-prod
+    secretName: example-tls
