@@ -13,10 +13,10 @@ spec:
   destination:
     namespace: media
     name: in-cluster
-  syncOptions:
-    - CreateNamespace=true
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
       allowEmpty: true
+    syncOptions:
+      - CreateNamespace=true
