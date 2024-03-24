@@ -7,5 +7,5 @@ spec:
   dnsNames:
     - "example.local.vulf.haus"
   issuerRef:
-    name: letsencrypt-staging
+    name: letsencrypt-prod
     kind: ClusterIssuer
