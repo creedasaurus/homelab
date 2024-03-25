@@ -8,7 +8,7 @@ spec:
   project: apps
   source:
     repoURL: "https://github.com/creedasaurus/homelab.git"
-    path: apps/services
+    path: apps/argocd/base/services
     targetRevision: main
   destination:
     namespace: services
