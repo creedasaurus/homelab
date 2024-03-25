@@ -7,6 +7,8 @@ spec:
   sourceRepos:
     - "*"
   destinations:
+    - namespace: argocd
+      server: "*"
     - namespace: media
       server: "*"
     - namespace: services
