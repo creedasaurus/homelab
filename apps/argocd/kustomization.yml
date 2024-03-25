@@ -4,5 +4,5 @@ namespace: argocd
 resources:
   - base/argo-projects/apps.yml
   - base/argo-projects/networking.yml
-  - base/services/media/example.yml
+  - base/argo-apps/services.yml
   - base/networking/certmanager.yml

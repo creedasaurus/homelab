@@ -9,6 +9,8 @@ spec:
   destinations:
     - namespace: media
       server: "*"
+    - namespace: services
+      server: "*"
     - namespace: default
       server: "*"
 
