@@ -14,4 +14,4 @@ spec:
             - containerPort: 80
           envFrom:
             - configMapRef:
-                name: example-cm3
+                name: example3-cm3
