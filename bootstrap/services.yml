@@ -8,8 +8,9 @@ spec:
   project: apps
   source:
     repoURL: "https://github.com/creedasaurus/homelab.git"
-    path: apps/argocd/base/services
+    path: apps/argocd/services
     targetRevision: main
+    recurse: true
   destination:
     namespace: services
     name: in-cluster

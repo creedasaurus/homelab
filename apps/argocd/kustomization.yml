@@ -1,8 +1,0 @@
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
-namespace: argocd
-resources:
-  - base/argo-projects/apps.yml
-  - base/argo-projects/networking.yml
-  - base/argo-apps/services.yml
-  - base/networking/certmanager.yml
