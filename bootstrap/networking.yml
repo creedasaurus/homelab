@@ -1,19 +1,22 @@
 apiVersion: argoproj.io/v1alpha1
-kind: AppProject
+kind: Application
 metadata:
   name: networking
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
-  description: Networking related resources
-  sourceRepos:
-    - "*"
-  destinations:
-    - namespace: cert-manager
-      server: "*"
-    - namespace: default
-      server: "*"
-
-  clusterResourceWhitelist:
-    - group: "*"
-      kind: "*"
-  orphanedResources:
-    warn: false
+  project: networking
+  source:
+    repoURL: "https://github.com/creedasaurus/homelab.git"
+    path: apps/argocd/networking
+    targetRevision: main
+  destination:
+    namespace: networking
+    name: in-cluster
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: true
+    syncOptions:
+      - CreateNamespace=true

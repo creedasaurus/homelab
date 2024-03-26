@@ -3,5 +3,6 @@ kind: Kustomization
 namespace: argocd
 resources:
   - apps-project.yml
-  - networking.yml
+  - networking-project.yml
   - services.yml
+  - networking.yml

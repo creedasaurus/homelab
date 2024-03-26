@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: networking
+spec:
+  description: Networking related resources
+  sourceRepos:
+    - "*"
+  destinations:
+    - namespace: cert-manager
+      server: "*"
+    - namespace: default
+      server: "*"
+
+  clusterResourceWhitelist:
+    - group: "*"
+      kind: "*"
+  orphanedResources:
+    warn: false
