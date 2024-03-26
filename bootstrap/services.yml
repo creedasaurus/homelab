@@ -10,7 +10,8 @@ spec:
     repoURL: "https://github.com/creedasaurus/homelab.git"
     path: apps/argocd/services
     targetRevision: main
-    recurse: true
+    directory:
+      recurse: true
   destination:
     namespace: services
     name: in-cluster
