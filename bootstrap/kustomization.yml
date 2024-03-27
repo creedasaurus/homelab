@@ -4,5 +4,7 @@ namespace: argocd
 resources:
   - apps-project.yml
   - networking-project.yml
+  - infra-project.yml
   - services.yml
   - networking.yml
+  - infra.yml
