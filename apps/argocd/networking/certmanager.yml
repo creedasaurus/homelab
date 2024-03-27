@@ -9,25 +9,10 @@ spec:
   destination:
     namespace: cert-manager
     name: in-cluster
-  sources:
-    - repoURL: https://charts.jetstack.io
-      chart: cert-manager
-      targetRevision: v1.14.4
-      helm:
-        releaseName: cert-manager
-        valuesObject:
-          installCRDs: true
-          extraArgs:
-            - --dns01-recursive-nameservers-only
-            - --dns01-recursive-nameservers=1.1.1.1:53,9.9.9.9:53
-          podDnsPolicy: None
-          podDnsConfig:
-            nameservers:
-              - "1.1.1.1"
-              - "9.9.9.9"
-    - repoURL: "https://github.com/creedasaurus/homelab.git"
-      path: apps/networking/certmanager
-      targetRevision: main
+  source:
+    repoURL: "https://github.com/creedasaurus/homelab.git"
+    path: apps/networking/certmanager
+    targetRevision: main
 
   info:
     - name: "Github Repository:"
