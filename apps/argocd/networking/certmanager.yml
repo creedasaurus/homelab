@@ -6,13 +6,48 @@ metadata:
     - resources-finalizer.argocd.argoproj.io
 spec:
   project: networking
-  source:
-    repoURL: "https://github.com/creedasaurus/homelab.git"
-    path: apps/networking/certmanager
-    targetRevision: main
   destination:
     namespace: cert-manager
     name: in-cluster
+  sources:
+    - repoURL: https://charts.jetstack.io
+      chart: cert-manager
+      targetRevision: v1.14.4
+      helm:
+        releaseName: cert-manager
+        valuesObject:
+          installCRDs: true
+          extraArgs:
+            - --dns01-recursive-nameservers-only
+            - --dns01-recursive-nameservers=1.1.1.1:53,9.9.9.9:53
+          podDnsPolicy: None
+          podDnsConfig:
+            nameservers:
+              - "1.1.1.1"
+              - "9.9.9.9"
+    - repoURL: "https://github.com/creedasaurus/homelab.git"
+      path: apps/networking/certmanager
+      targetRevision: main
+
+  info:
+    - name: "Github Repository:"
+      value: >-
+        https://github.com/cert-manager/cert-manager
+    - name: "Chart location:"
+      value: >-
+        https://github.com/cert-manager/cert-manager/tree/master/deploy/charts/cert-manager
+    - name: "Official Website:"
+      value: >-
+        https://cert-manager.io/
+    - name: "Documentation:"
+      value: >-
+        https://cert-manager.io/docs/
+    - name: "Cloudflare issuer documentation:"
+      value: >-
+        https://cert-manager.io/docs/configuration/acme/dns01/cloudflare/
+    - name: "Issuing certificates documentation:"
+      value: >-
+        https://cert-manager.io/docs/usage/certificate/
   syncPolicy:
     automated:
       prune: true
