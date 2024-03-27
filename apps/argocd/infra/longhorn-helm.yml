@@ -10,14 +10,16 @@ spec:
     namespace: longhorn-system
     name: in-cluster
   source:
-    repoURL: https://charts.longhorn.io
-    targetRevision: v1.6.0
-    chart: longhorn
-    helm:
-      valuesObject:
-        defaultSettings:
-          defaultReplicaCount: 1
-
+    - repoURL: https://charts.longhorn.io
+      targetRevision: v1.6.0
+      chart: longhorn
+      helm:
+        valuesObject:
+          defaultSettings:
+            defaultReplicaCount: 1
+    - repoURL: "https://github.com/creedasaurus/homelab.git"
+      targetRevision: main
+      path: apps/infra/longhorn
   syncPolicy:
     automated:
       prune: true
