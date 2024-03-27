@@ -8,7 +8,7 @@ spec:
   project: networking
   destination:
     namespace: traefik
-    server: in-cluster
+    name: in-cluster
   source:
     repoURL: https://traefik.github.io/charts
     targetRevision: v26.1.0
