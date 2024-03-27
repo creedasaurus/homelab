@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: infra
+spec:
+  description: Applications for general infrastructure
+  sourceRepos:
+    - "*"
+  destinations:
+    - namespace: argocd
+      server: "*"
+    - namespace: longhorn-system
+      server: "*"
+    - namespace: services
+      server: "*"
+    - namespace: default
+      server: "*"
+
+  clusterResourceWhitelist:
+    - group: "*"
+      kind: "*"
+  orphanedResources:
+    warn: false

@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: longhorn
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: infra
+  destination:
+    namespace: longhorn-system
+    name: in-cluster
+  source:
+    repoURL: https://charts.longhorn.io
+    targetRevision: v1.6.0
+    chart: longhorn
+    helm:
+      valuesObject:
+        defaultSettings:
+          defaultReplicaCount: 1
+
+  syncPolicy:
+    automated:
+      prune: true
+    syncOptions:
+      - CreateNamespace=true
