@@ -17,8 +17,8 @@ spec:
         valuesObject:
           defaultSettings:
             defaultReplicaCount: 1
-          helmPreUpgradeCheckerJob:
-            enabled: false
+          preUpgradeChecker:
+            jobEnabled: false
     - repoURL: "https://github.com/creedasaurus/homelab.git"
       targetRevision: main
       path: apps/infra/longhorn
