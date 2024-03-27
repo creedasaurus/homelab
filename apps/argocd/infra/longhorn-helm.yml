@@ -9,7 +9,7 @@ spec:
   destination:
     namespace: longhorn-system
     name: in-cluster
-  source:
+  sources:
     - repoURL: https://charts.longhorn.io
       targetRevision: v1.6.0
       chart: longhorn
