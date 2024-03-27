@@ -7,6 +7,8 @@ spec:
   sourceRepos:
     - "*"
   destinations:
+    - namespace: argocd
+      server: "*"
     - namespace: networking
       server: "*"
     - namespace: cert-manager
