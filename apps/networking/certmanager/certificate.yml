@@ -1,17 +1,17 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: test-shared-cert
+  name: shared-wildcard-vulfhaus-cert
 spec:
-  secretName: test-shared-tls
+  secretName: cm-shared-wildcard-vulfhaus-tls
   dnsNames:
-    - "testshared.local.vulf.haus"
+    - "vulf.haus"
+    - "*.vulf.haus"
   issuerRef:
-    name: letsencrypt-staging
+    name: letsencrypt-prod
     kind: ClusterIssuer
   secretTemplate:
     annotations:
       reflector.v1.k8s.emberstack.com/reflection-allowed: "true"
-      # reflector.v1.k8s.emberstack.com/reflection-allowed-namespaces: "media,longhorn-system"
-      reflector.v1.k8s.emberstack.com/reflection-auto-enabled: "true" # Auto create reflection for matching namespaces
-      reflector.v1.k8s.emberstack.com/reflection-auto-namespaces: "media,longhorn-system" # Control auto-reflection namespaces
+      reflector.v1.k8s.emberstack.com/reflection-auto-enabled: "true"
+      reflector.v1.k8s.emberstack.com/reflection-auto-namespaces: "media,longhorn-system"
