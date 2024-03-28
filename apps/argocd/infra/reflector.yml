@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: reflector
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
+spec:
+  project: infra
+  destination:
+    namespace: reflector
+    name: in-cluster
+  source:
+    repoURL: https://emberstack.github.io/helm-charts
+    chart: reflector
+    helm:
+      releaseName: reflector
+  syncPolicy:
+    automated:
+      prune: true
+    syncOptions:
+      - CreateNamespace=true

@@ -19,6 +19,8 @@ spec:
       server: "*"
     - namespace: op-connect
       server: "*"
+    - namespace: reflector
+      server: "*"
 
   clusterResourceWhitelist:
     - group: "*"
