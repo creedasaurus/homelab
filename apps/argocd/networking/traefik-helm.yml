@@ -34,6 +34,8 @@ spec:
             ingressClass: "traefik-external"
           kubernetesIngress:
             enabled: true
+            publishedService:
+              enabled: true
         rbac:
           enabled: true
         service:
