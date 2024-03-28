@@ -3,7 +3,7 @@ kind: Certificate
 metadata:
   name: test-shared-cert
 spec:
-  secretName: example-tls
+  secretName: test-shared-tls
   dnsNames:
     - "testshared.local.vulf.haus"
   issuerRef:
