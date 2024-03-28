@@ -7,12 +7,12 @@ metadata:
 spec:
   project: apps
   sources:
-    - repourl: "https://github.com/creedasaurus/homelab.git"
+    - repoURL: "https://github.com/creedasaurus/homelab.git"
       path: apps/argocd/services
-      targetrevision: main
-    - repourl: "https://github.com/creedasaurus/homelab-deux.git"
+      targetRevision: main
+    - repoURL: "https://github.com/creedasaurus/homelab-deux.git"
       path: apps/argocd/services
-      targetrevision: main
+      targetRevision: main
   destination:
     namespace: argocd
     name: in-cluster
