@@ -5,6 +5,7 @@ namespace: argocd
 resources:
   - namespace.yml
   - https://raw.githubusercontent.com/argoproj/argo-cd/v2.10.4/manifests/install.yaml
+  - homelab-deux-repo.yml
 
 patches:
   - path: argocd-cm.yml
