@@ -17,6 +17,10 @@ spec:
       chart: longhorn
       helm:
         valuesObject:
+          longhornUI:
+            replicas: 1
+          persistence:
+            defaultClassReplicaCount: 1
           defaultSettings:
             defaultReplicaCount: 1
           preUpgradeChecker:
