@@ -17,10 +17,9 @@ spec:
         type: git
         url: https://github.com/creedasaurus/homelab-deux.git
         username: creedasaurus
-        password: >-
-          {{ printf "{{ .access-token | toString }}" }}
+        password: "{{ .accessToken }}"
   data:
-    - secretKey: access-token
+    - secretKey: accessToken
       remoteRef:
         key: github-read-access
         property: github-read-access-token
