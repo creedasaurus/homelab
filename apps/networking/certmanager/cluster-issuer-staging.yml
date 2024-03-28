@@ -22,7 +22,7 @@ spec:
             # If using accessKeyID, omit the accessKeyIDSecretRef parameter and vice-versa
             accessKeyIDSecretRef:
               key: keyid
-              name: home-server-aws-token
+              name: aws-route53-access
             secretAccessKeySecretRef:
               key: accesskey
-              name: home-server-aws-token
+              name: aws-route53-access
