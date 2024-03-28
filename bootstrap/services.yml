@@ -6,10 +6,13 @@ metadata:
     - resources-finalizer.argocd.argoproj.io
 spec:
   project: apps
-  source:
-    repoURL: "https://github.com/creedasaurus/homelab.git"
-    path: apps/argocd/services
-    targetRevision: main
+  sources:
+    - repourl: "https://github.com/creedasaurus/homelab.git"
+      path: apps/argocd/services
+      targetrevision: main
+    - repourl: "https://github.com/creedasaurus/homelab-deux.git"
+      path: apps/argocd/services
+      targetrevision: main
   destination:
     namespace: argocd
     name: in-cluster
