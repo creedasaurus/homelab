@@ -14,7 +14,7 @@ spec:
     targetRevision: v26.1.0
     chart: traefik
     helm:
-      valuesObject:
+      values: |
         globalArguments:
           - "--global.checknewversion=false"
           - "--global.sendanonymoususage=false"

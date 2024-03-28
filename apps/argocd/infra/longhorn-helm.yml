@@ -16,7 +16,7 @@ spec:
       targetRevision: v1.6.0
       chart: longhorn
       helm:
-        valuesObject:
+        values: |
           longhornUI:
             replicas: 1
           persistence:
