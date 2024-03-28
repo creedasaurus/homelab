@@ -6,6 +6,7 @@ resources:
   - cluster-issuer-prod.yml
   - cluster-issuer-staging.yml
   - external-secret-aws.yml
+  - certificate.yml
 
 helmCharts:
   - name: cert-manager
