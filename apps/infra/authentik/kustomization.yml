@@ -4,6 +4,7 @@ kind: Kustomization
 namespace: authentik
 resources:
   - namespace.yml
+  - traefik-middleware.yml
 helmCharts:
   - name: authentik
     repo: https://charts.goauthentik.io
