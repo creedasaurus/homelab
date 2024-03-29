@@ -9,41 +9,43 @@ spec:
   destination:
     namespace: traefik
     name: in-cluster
-  source:
-    repoURL: https://traefik.github.io/charts
-    targetRevision: v26.1.0
-    chart: traefik
-    helm:
-      values: |
-        globalArguments:
-          - "--global.checknewversion=false"
-          - "--global.sendanonymoususage=false"
-        ports:
-          # web:
-          #   redirectTo:
-          #     port: websecure
-          websecure:
-            tls:
+  sources:
+    - repoURL: https://traefik.github.io/charts
+      targetRevision: v26.1.0
+      chart: traefik
+      helm:
+        values: |
+          globalArguments:
+            - "--global.checknewversion=false"
+            - "--global.sendanonymoususage=false"
+          ports:
+            # web:
+            #   redirectTo:
+            #     port: websecure
+            websecure:
+              tls:
+                enabled: true
+          ingressRoute:
+            dashboard:
+              enabled: false
+          providers:
+            kubernetesCRD:
               enabled: true
-        ingressRoute:
-          dashboard:
-            enabled: false
-        providers:
-          kubernetesCRD:
-            enabled: true
-            ingressClass: "traefik-external"
-            allowCrossNamespace: true
-          kubernetesIngress:
-            enabled: true
-            publishedService:
+              ingressClass: "traefik-external"
+              allowCrossNamespace: true
+            kubernetesIngress:
               enabled: true
-        rbac:
-          enabled: true
-        service:
-          enabled: true
-          spec:
-            loadBalancerIP: 192.168.25.52
-
+              publishedService:
+                enabled: true
+          rbac:
+            enabled: true
+          service:
+            enabled: true
+            spec:
+              loadBalancerIP: 192.168.25.52
+    - repoURL: "https://github.com/creedasaurus/homelab.git"
+      targetRevision: main
+      path: apps/networking/traefik
   syncPolicy:
     automated:
       prune: true

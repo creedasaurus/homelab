@@ -4,3 +4,4 @@ namespace: longhorn-system
 namePrefix: longhorn-
 resources:
   - ingress.yml
+  - large-storageclass.yml
