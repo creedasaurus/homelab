@@ -15,7 +15,7 @@ spec:
       middlewares:
         - name: authentik
           namespace: authentik
-      # priority: 10
+      priority: 10
       services:
         - name: longhorn-frontend
           port: 80
@@ -25,7 +25,7 @@ spec:
         - name: authentik-server
           namespace: authentik
           port: 80
-      # priority: 15
+      priority: 15
   tls:
     # shared wildcard cert for *.vulf.haus
     secretName: cm-shared-wildcard-vulfhaus-tls
