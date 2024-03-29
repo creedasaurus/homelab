@@ -7,4 +7,3 @@ parameters:
   numberOfReplicas: "1"
   diskSelector: "large"
   nodeSelector: "mega"
-  nfsOptions: "vers=4.2,noresvport,softerr,timeo=600,retrans=5"
