@@ -2,7 +2,6 @@ apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
   name: ingress
-  namespace: longhorn-system
   annotations:
     kubernetes.io/ingress.class: traefik-external
 
@@ -10,17 +9,17 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`longhorn.vulf.haus`)
+    - match: Host(`traefik.vulf.haus`)
       kind: Rule
       middlewares:
         - name: authentik
           namespace: authentik
       priority: 10
       services:
-        - name: longhorn-frontend
-          port: 80
+        - name: api@internal
+          kind: TraefikService
     - kind: Rule
-      match: "Host(`longhorn.vulf.haus`) && PathPrefix(`/outpost.goauthentik.io/`)"
+      match: "Host(`traefik.vulf.haus`) && PathPrefix(`/outpost.goauthentik.io/`)"
       services:
         - name: authentik-server
           namespace: authentik
