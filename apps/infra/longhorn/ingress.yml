@@ -15,9 +15,17 @@ spec:
       middlewares:
         - name: authentik
           namespace: authentik
+      priority: 10
       services:
         - name: longhorn-frontend
           port: 80
+    - kind: Rule
+      match: "Host(`longhorn.vulf.haus`) && PathPrefix(`/outpost.goauthentik.io/`)"
+      services:
+        - name: authentik-server
+          namespace: authentik
+          port: http
+      priority: 15
   tls:
     # shared wildcard cert for *.vulf.haus
     secretName: cm-shared-wildcard-vulfhaus-tls
