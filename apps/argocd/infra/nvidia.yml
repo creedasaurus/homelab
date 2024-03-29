@@ -14,21 +14,11 @@ spec:
     repoURL: https://helm.ngc.nvidia.com/nvidia
     targetRevision: v23.9.2
     helm:
-      valuesObject:
+      values: |
         driver:
           enabled: "false"
         toolkit:
           enabled: "false"
-          env:
-            - name: CONTAINERD_CONFIG
-              value: /var/lib/rancher/k3s/agent/etc/containerd/config.toml
-            - name: CONTAINERD_SOCKET
-              value: /run/k3s/containerd/containerd.sock
-            - name: CONTAINERD_RUNTIME_CLASS
-              value: nvidia
-            - name: CONTAINERD_SET_AS_DEFAULT
-              value: "false"
-
   syncPolicy:
     automated:
       allowEmpty: true
