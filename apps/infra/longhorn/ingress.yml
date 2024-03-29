@@ -24,7 +24,7 @@ spec:
       services:
         - name: authentik-server
           namespace: authentik
-          # port: 9000
+          port: 9000
       # priority: 15
   tls:
     # shared wildcard cert for *.vulf.haus
