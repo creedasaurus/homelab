@@ -3,7 +3,6 @@ kind: Kustomization
 namePrefix: example-
 resources:
   - cm.yml
-  - certificate.yml
   - deployment.yml
   - ingress.yml
   - svc.yml
