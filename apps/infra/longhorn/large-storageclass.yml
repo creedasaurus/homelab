@@ -3,7 +3,9 @@ apiVersion: storage.k8s.io/v1
 metadata:
   name: large
 provisioner: driver.longhorn.io
+allowVolumeExpansion: true
 parameters:
   numberOfReplicas: "1"
+  dataLocality: strict-local
   diskSelector: "large"
   nodeSelector: "mega"
