@@ -9,7 +9,7 @@ spec:
   destinations:
     - namespace: argocd
       server: "*"
-    - namespace: longhorn-system
+    - namespace: openebs
       server: "*"
     - namespace: services
       server: "*"
