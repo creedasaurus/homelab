@@ -15,7 +15,10 @@ spec:
     - repoURL: https://openebs.github.io/charts
       targetRevision: "3.10.0"
       chart: openebs
-
+      helm:
+        values: |
+          zfs-localpv:
+            enabled: true
     # - repoURL: "https://github.com/creedasaurus/homelab.git"
     #   targetRevision: main
     #   path: apps/infra/openebs
