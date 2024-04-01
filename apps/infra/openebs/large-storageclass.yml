@@ -1,0 +1,14 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: openebs-zfspv
+allowVolumeExpansion: true
+parameters:
+  fstype: "zfs"
+  poolname: "rpool"
+provisioner: zfs.csi.openebs.io
+allowedTopologies:
+  - matchLabelExpressions:
+      - key: kubernetes.io/hostname
+        values:
+          - vulfmega

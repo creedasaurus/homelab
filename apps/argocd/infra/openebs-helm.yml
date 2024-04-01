@@ -19,9 +19,9 @@ spec:
         values: |
           zfs-localpv:
             enabled: true
-    # - repoURL: "https://github.com/creedasaurus/homelab.git"
-    #   targetRevision: main
-    #   path: apps/infra/openebs
+    - repoURL: "https://github.com/creedasaurus/homelab.git"
+      targetRevision: main
+      path: apps/infra/openebs
   syncPolicy:
     automated:
       prune: true
