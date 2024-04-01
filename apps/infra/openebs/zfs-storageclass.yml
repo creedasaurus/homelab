@@ -6,6 +6,7 @@ allowVolumeExpansion: true
 parameters:
   fstype: "zfs"
   poolname: "rpool"
+  shared: "yes"
 provisioner: zfs.csi.openebs.io
 allowedTopologies:
   - matchLabelExpressions:
