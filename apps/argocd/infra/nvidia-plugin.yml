@@ -14,9 +14,9 @@ spec:
   source:
     repoURL: https://nvidia.github.io/k8s-device-plugin
     targetRevision: "0.14.5"
-    chart: nvdp
-    helm:
-      releaseName: nvidia-device-plugin
+    chart: nvidia-device-plugin
+    # helm:
+    #   releaseName: nvidia-device-plugin
     # helm:
     #   values: |
     #     zfs-localpv:
