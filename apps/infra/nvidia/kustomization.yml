@@ -1,0 +1,20 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ns.yml
+helmCharts:
+  - name: nvidia-device-plugin
+    repo: https://nvidia.github.io/k8s-device-plugin
+    version: "0.14.5"
+    releaseName: nvdp
+    namespace: nvidia-device-plugin
+    includeCRDs: true
+patches:
+  - patch: |-
+      - op: add
+        path: /spec/template/spec/runtimeClassName
+        value: nvidia
+    target:
+      group: apps
+      version: v1
+      kind: DaemonSet
