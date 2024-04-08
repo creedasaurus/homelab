@@ -23,7 +23,7 @@ spec:
       server: "*"
     - namespace: authentik
       server: "*"
-    - namespace: gpu-operator
+    - namespace: nvidia-device-plugin
       server: "*"
 
   clusterResourceWhitelist:
