@@ -1,3 +1,4 @@
+runtimeClassName: nvidia
 gfd:
   enabled: true
 # node-feature-discovery is already installed
