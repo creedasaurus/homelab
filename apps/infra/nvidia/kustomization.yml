@@ -9,6 +9,7 @@ helmCharts:
     releaseName: nvdp
     namespace: nvidia-device-plugin
     includeCRDs: true
+    valuesFile: values.yml
 patches:
   - patch: |-
       - op: add

@@ -1,0 +1,5 @@
+gfd:
+  enabled: true
+# node-feature-discovery is already installed
+nfd:
+  enabled: false
