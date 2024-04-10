@@ -19,6 +19,8 @@ spec:
         values: |
           zfs-localpv:
             enabled: true
+          nfs-provisioner:
+            enabled: true
     - repoURL: "https://github.com/creedasaurus/homelab.git"
       targetRevision: main
       path: apps/infra/openebs
