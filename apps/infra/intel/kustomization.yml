@@ -3,10 +3,16 @@ kind: Kustomization
 resources:
   - ns.yml
 helmCharts:
+  - name: intel-device-plugins-operator
+    repo: https://intel.github.io/helm-charts
+    version: "0.29.0"
+    releaseName: intel
+    namespace: inteldeviceplugins-system
+    includeCRDs: true
   - name: intel-device-plugins-gpu
     repo: https://intel.github.io/helm-charts
     version: "0.29.0"
     releaseName: intel
     namespace: inteldeviceplugins-system
     includeCRDs: true
-    valuesFile: values.yml
+    valuesFile: gpu-values.yml
