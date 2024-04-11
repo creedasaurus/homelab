@@ -20,7 +20,7 @@ spec:
           zfs-localpv:
             enabled: true
           nfs-provisioner:
-            enabled: false
+            enabled: true
             nfsServerNodeAffinity: "kubernetes.io/storage-node,kubernetes.io/nfs-node"
     - repoURL: "https://github.com/creedasaurus/homelab.git"
       targetRevision: main
