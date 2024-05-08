@@ -1,19 +1,19 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: example
+  name: k8s-dashboard
   finalizers:
     - resources-finalizer.argocd.argoproj.io
   annotations:
-    argocd.argoproj.io/sync-wave: "2"
+    argocd.argoproj.io/sync-wave: "3"
 spec:
   project: apps
   source:
     repoURL: "https://github.com/creedasaurus/homelab.git"
-    path: apps/services/media/example
+    path: apps/services/k8s-dashboard
     targetRevision: main
   destination:
-    namespace: media
+    namespace: kubernetes-dashboard
     name: in-cluster
   syncPolicy:
     automated:
