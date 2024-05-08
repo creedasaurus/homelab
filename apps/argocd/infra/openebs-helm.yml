@@ -15,9 +15,14 @@ spec:
     - repoURL: https://openebs.github.io/openebs
       targetRevision: "4.0.1"
       chart: openebs
-    # - repoURL: "https://github.com/creedasaurus/homelab.git"
-    #   targetRevision: main
-    #   path: apps/infra/openebs
+      helm:
+        values: |
+          mayastor:
+            enabled: true
+          engines:
+            replicated:
+              mayastor:
+                enabled: true
   syncPolicy:
     automated:
       prune: true
