@@ -18,11 +18,11 @@ spec:
       helm:
         values: |
           mayastor:
-            enabled: true
+            enabled: false
           engines:
             replicated:
               mayastor:
-                enabled: true
+                enabled: false
   syncPolicy:
     automated:
       prune: true
