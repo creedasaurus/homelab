@@ -13,7 +13,7 @@ spec:
     name: in-cluster
   sources:
     - repoURL: https://traefik.github.io/charts
-      targetRevision: v26.1.0
+      targetRevision: v28.0.0
       chart: traefik
       helm:
         values: |
@@ -21,52 +21,9 @@ spec:
             - "--global.checknewversion=false"
             - "--global.sendanonymoususage=false"
           ports:
-            # web:
-            #   redirectTo:
-            #     port: websecure
             websecure:
               tls:
                 enabled: true
-            plexmain:
-              port: 32400
-              expose: true
-              exposedPort: 32400
-              protocol: TCP
-            plex-dlna1:
-              port: 1900
-              expose: true
-              exposedPort: 1900
-              protocol: UDP
-            plex-dlna2:
-              port: 32469
-              expose: true
-              exposedPort: 32469
-              protocol: TCP
-            plex-gdm1:
-              port: 32410
-              expose: true
-              exposedPort: 32410
-              protocol: UDP
-            plex-gdm2:
-              port: 32412
-              expose: true
-              exposedPort: 32412
-              protocol: UDP
-            plex-gdm3:
-              port: 32413
-              expose: true
-              exposedPort: 32413
-              protocol: UDP
-            plex-gdm4:
-              port: 32414
-              expose: true
-              exposedPort: 32414
-              protocol: UDP
-            plex-companion:
-              port: 8324
-              expose: true
-              exposedPort: 8324
-              protocol: TCP
           ingressRoute:
             dashboard:
               enabled: false
@@ -84,7 +41,7 @@ spec:
           service:
             enabled: true
             spec:
-              loadBalancerIP: 192.168.25.52
+              loadBalancerIP: 192.168.66.100
     - repoURL: "https://github.com/creedasaurus/homelab.git"
       targetRevision: main
       path: apps/networking/traefik

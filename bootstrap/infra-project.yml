@@ -23,8 +23,6 @@ spec:
       server: "*"
     - namespace: authentik
       server: "*"
-    - namespace: nvidia-device-plugin
-      server: "*"
     - namespace: node-feature-discovery
       server: "*"
     - namespace: inteldeviceplugins-system

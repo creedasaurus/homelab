@@ -1,3 +1,4 @@
 charts/
 bootstrap/1password/values.yml
 1password-credentials.json
+credentials.pkr.hcl
