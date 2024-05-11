@@ -23,6 +23,9 @@ spec:
             replicated:
               mayastor:
                 enabled: false
+    - repoURL: "https://github.com/creedasaurus/homelab.git"
+      targetRevision: main
+      path: apps/infra/openebs
   syncPolicy:
     automated:
       prune: true
