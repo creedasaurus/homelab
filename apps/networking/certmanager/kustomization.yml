@@ -5,7 +5,7 @@ kind: Kustomization
 resources:
   - cluster-issuer-prod.yml
   - cluster-issuer-staging.yml
-  - external-secret-aws.yml
+  - external-secrets-dns.yml
   - certificate.yml
 
 helmCharts:
