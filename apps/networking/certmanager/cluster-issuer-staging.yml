@@ -27,10 +27,10 @@ spec:
               key: accesskey
               name: aws-route53-access
       - dns01:
-        cloudflare:
-          apiTokenSecretRef:
-            name: cloudflare-api-token
-            key: api-token
+          cloudflare:
+            apiTokenSecretRef:
+              name: cloudflare-api-token
+              key: api-token
         selector:
           dnsZones:
             - "haycreed.net"
