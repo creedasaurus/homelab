@@ -10,22 +10,6 @@ spec:
     privateKeySecretRef:
       name: letsencrypt-staging
     solvers:
-      - selector:
-          dnsZones:
-            - "vulf.haus"
-            - "local.vulf.haus"
-        dns01:
-          route53:
-            region: us-east-1
-            # The AWS access key ID can be specified using the literal accessKeyID parameter
-            # or retrieved from a secret using the accessKeyIDSecretRef
-            # If using accessKeyID, omit the accessKeyIDSecretRef parameter and vice-versa
-            accessKeyIDSecretRef:
-              key: keyid
-              name: aws-route53-access
-            secretAccessKeySecretRef:
-              key: accesskey
-              name: aws-route53-access
       - dns01:
           cloudflare:
             apiTokenSecretRef:
@@ -34,3 +18,5 @@ spec:
         selector:
           dnsZones:
             - "haycreed.net"
+            - "local.vulf.haus"
+            - "vulf.haus"
