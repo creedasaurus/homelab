@@ -9,11 +9,11 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`example3.local.vulf.haus`)
+    - match: Host(`test.vulf.haus`)
       kind: Rule
       services:
         - name: example
           port: 80
 
   tls:
-    secretName: example3-tls
+    secretName: cm-staging-shared-wildcard-vulfhaus-tls

@@ -8,8 +8,8 @@ spec:
   template:
     spec:
       containers:
-        - image: nginx
-          name: guestbook-ui
+        - name: whoami
+          image: traefik/whoami
           ports:
             - containerPort: 80
           envFrom:
