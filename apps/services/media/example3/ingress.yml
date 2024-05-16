@@ -12,7 +12,7 @@ spec:
     - match: Host(`test.vulf.haus`)
       kind: Rule
       services:
-        - name: example
+        - name: example3-guestbook-ui
           port: 80
 
   tls:
