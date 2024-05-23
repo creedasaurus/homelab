@@ -1,0 +1,19 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: authentik-pg
+spec:
+  instances: 3
+
+  bootstrap:
+    initdb:
+      database: authentik
+      owner: authentik
+      secret:
+        name: authentik-pg-user-creds
+
+  storage:
+    size: 1Gi
+  superuserSecret:
+    name: authentik-pg-superuser-creds
+  enableSuperuserAccess: true

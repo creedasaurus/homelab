@@ -4,6 +4,8 @@ kind: Kustomization
 namespace: authentik
 resources:
   - namespace.yml
+  - secrets.yml
+  - database.yml
   - traefik-middleware.yml
 helmCharts:
   - name: authentik

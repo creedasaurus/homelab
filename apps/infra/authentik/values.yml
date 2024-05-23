@@ -1,11 +1,24 @@
+global:
+  env:
+    - name: AUTHENTIK_SECRET_KEY
+      valueFrom:
+        secretKeyRef:
+          name: authentik-secret-key
+          key: key
+    - name: AUTHENTIK_POSTGRESQL__HOST
+      value: authentik-pg-rw
+    - name: AUTHENTIK_POSTGRESQL__NAME
+      value: authentik
+    - name: AUTHENTIK_POSTGRESQL__USER
+      value: authentik
+    - name: AUTHENTIK_POSTGRESQL__PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: authentik-pg-user-creds
+          key: password
+
 authentik:
-  secret_key: "PleaseGenerateA50CharKey"
-  # This sends anonymous usage-data, stack traces on errors and
-  # performance data to authentik.error-reporting.a7k.io, and is fully opt-in
-  error_reporting:
-    enabled: true
-  postgresql:
-    password: "ThisIsNotASecurePassword"
+  log_level: debug
 
 server:
   ingress:
@@ -17,11 +30,6 @@ server:
       - authentik.vulf.haus
     tls:
       - secretName: cm-shared-wildcard-vulfhaus-tls
-
-postgresql:
-  enabled: true
-  auth:
-    password: "ThisIsNotASecurePassword"
 
 redis:
   enabled: true
