@@ -2,6 +2,7 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: shared-staging-wildcard-vulfhaus-cert
+  namespace: cert-manager
 spec:
   secretName: cm-staging-shared-wildcard-vulfhaus-tls
   dnsNames:
@@ -14,4 +15,4 @@ spec:
     annotations:
       reflector.v1.k8s.emberstack.com/reflection-allowed: "true"
       reflector.v1.k8s.emberstack.com/reflection-auto-enabled: "true"
-      reflector.v1.k8s.emberstack.com/reflection-auto-namespaces: "media,authentik,traefik,argocd,default"
+      reflector.v1.k8s.emberstack.com/reflection-auto-namespaces: "media,authentik,traefik,argocd,default,development"
