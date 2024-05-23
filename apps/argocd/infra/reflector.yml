@@ -5,18 +5,16 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
   annotations:
-    argocd.argoproj.io/sync-wave: "-1"
+    argocd.argoproj.io/sync-wave: "-3"
 spec:
   project: infra
   destination:
     namespace: reflector
     name: in-cluster
-  source:
-    repoURL: https://emberstack.github.io/helm-charts
-    targetRevision: "7.1.262"
-    chart: reflector
-    helm:
-      releaseName: reflector
+  sources:
+    - repoURL: "https://github.com/creedasaurus/homelab.git"
+      targetRevision: main
+      path: apps/infra/reflector
   syncPolicy:
     automated:
       prune: true
