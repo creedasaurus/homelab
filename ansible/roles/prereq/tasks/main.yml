@@ -1,0 +1,49 @@
+---
+- name: Ping
+  ansible.builtin.ping:
+
+- name: Install a list of packages
+  ansible.builtin.apt:
+    pkg:
+      - neovim
+      - qemu-guest-agent
+      - intel-gpu-tools
+      - nfs-common
+      - zfsutils-linux
+
+# Longhorn wants uio and nvme modules loaded
+- name: Ensure uio module loads
+  community.general.modprobe:
+    name: uio
+    state: present
+    persistent: present
+- name: Ensure uio_pci_generic module loads
+  community.general.modprobe:
+    name: uio_pci_generic
+    state: present
+    persistent: present
+- name: Ensure nvme-tcp module loads
+  community.general.modprobe:
+    name: nvme-tcp
+    state: present
+    persistent: present
+
+# Set hugepages for Longhorn
+- ansible.posix.sysctl:
+    name: vm.nr_hugepages
+    value: "1024"
+    state: present
+
+# provision the extra longhorn disks
+- name: Create a ext4 filesystem on /dev/vda
+  community.general.filesystem:
+    fstype: ext4
+    dev: /dev/vda
+    resizefs: true
+
+- name: Mount up extra disk
+  ansible.posix.mount:
+    path: /var/lib/longhorn
+    src: /dev/vda
+    fstype: ext4
+    state: mounted
