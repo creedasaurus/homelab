@@ -11,12 +11,10 @@ spec:
   destination:
     namespace: node-feature-discovery
     name: in-cluster
-  source:
-    repoURL: https://kubernetes-sigs.github.io/node-feature-discovery/charts
-    targetRevision: "v0.15.4"
-    chart: node-feature-discovery
-    helm:
-      releaseName: nfd
+  sources:
+    - repoURL: "https://github.com/creedasaurus/homelab.git"
+      targetRevision: main
+      path: apps/infra/nfd
   syncPolicy:
     automated:
       prune: true
