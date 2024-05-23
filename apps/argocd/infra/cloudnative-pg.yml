@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: pg-operator
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
+spec:
+  project: infra
+  destination:
+    namespace: cnpg-system
+    name: in-cluster
+  sources:
+    - repoURL: "https://github.com/creedasaurus/homelab.git"
+      targetRevision: main
+      path: apps/infra/cnpg
+  syncPolicy:
+    automated:
+      prune: true
+    syncOptions:
+      - CreateNamespace=true
