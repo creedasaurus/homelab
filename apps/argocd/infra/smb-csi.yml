@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: smb
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  annotations:
+    argocd.argoproj.io/sync-wave: "-5"
+spec:
+  project: infra
+  destination:
+    namespace: kube-system
+    name: in-cluster
+  sources:
+    - repoURL: "https://github.com/creedasaurus/homelab.git"
+      targetRevision: main
+      path: apps/infra/smb-csi
+  syncPolicy:
+    automated:
+      prune: true
