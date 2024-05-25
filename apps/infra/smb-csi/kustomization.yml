@@ -7,3 +7,6 @@ helmCharts:
     version: v1.14.0
     releaseName: csi-driver-smb
     namespace: kube-system
+
+resources:
+  - https://raw.githubusercontent.com/kubernetes-csi/csi-driver-smb/master/deploy/example/storageclass-smb.yaml
