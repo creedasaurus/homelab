@@ -33,3 +33,4 @@ server:
 
 redis:
   enabled: true
+  global.storageClass: "local-path"
