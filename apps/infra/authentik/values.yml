@@ -1,4 +1,5 @@
 global:
+  storageClass: local-path
   env:
     - name: AUTHENTIK_SECRET_KEY
       valueFrom:
@@ -33,4 +34,3 @@ server:
 
 redis:
   enabled: true
-  storageClass: "local-path"
