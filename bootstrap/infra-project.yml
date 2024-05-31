@@ -9,7 +9,7 @@ spec:
   destinations:
     - namespace: argocd
       server: "*"
-    - namespace: openebs
+    - namespace: longhorn-system
       server: "*"
     - namespace: services
       server: "*"
@@ -26,6 +26,10 @@ spec:
     - namespace: node-feature-discovery
       server: "*"
     - namespace: inteldeviceplugins-system
+      server: "*"
+    - namespace: cnpg-system
+      server: "*"
+    - namespace: kube-system
       server: "*"
 
   clusterResourceWhitelist:
