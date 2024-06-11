@@ -14,7 +14,7 @@ spec:
   sources:
     - repoURL: "https://github.com/creedasaurus/homelab.git"
       targetRevision: main
-      path: apps/infra/minio
+      path: apps/infra/minio-operator
   syncPolicy:
     automated:
       prune: true
