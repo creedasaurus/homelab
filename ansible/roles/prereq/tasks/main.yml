@@ -10,6 +10,11 @@
       - intel-gpu-tools
       - nfs-common
       - zfsutils-linux
+      - open-iscsi
+      - lsscsi
+      - sg3-utils
+      - multipath-tools
+      - scsitools
 
 # Longhorn wants uio and nvme modules loaded
 - name: Ensure uio module loads
@@ -47,3 +52,12 @@
     src: /dev/vda
     fstype: ext4
     state: mounted
+
+- name: Creating a file with content
+  copy:
+    dest: "/etc/multipath.conf"
+    content: |
+      defaults {
+          user_friendly_names yes
+          find_multipaths yes
+      }
