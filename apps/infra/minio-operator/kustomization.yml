@@ -3,3 +3,4 @@ kind: Kustomization
 
 resources:
   - github.com/minio/operator?ref=v5.0.15
+  - ./ingress.yml
