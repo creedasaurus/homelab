@@ -5,6 +5,12 @@ cephClusterSpec:
     enabled: true
     urlPrefix: /
     ssl: false
+
+  mgr:
+    modules:
+      - name: rook
+        enabled: true
+
   storage:
     useAllNodes: true
     deviceFilter: vdb
