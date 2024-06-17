@@ -61,9 +61,9 @@ cephFileSystems:
         resources:
           requests:
             cpu: 100m
-            memory: 1Gi
+            memory: 500Mi
           limits:
-            memory: 4Gi
+            memory: 2Gi
     storageClass:
       enabled: true
       isDefault: false
@@ -100,9 +100,9 @@ cephObjectStores:
         resources:
           requests:
             cpu: 100m
-            memory: 1Gi
+            memory: 500Mi
           limits:
-            memory: 2Gi
+            memory: 1Gi
         instances: 2
         priorityClassName: system-cluster-critical
       healthCheck:
