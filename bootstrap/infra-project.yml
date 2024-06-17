@@ -33,6 +33,8 @@ spec:
       server: "*"
     - namespace: minio-operator
       server: "*"
+    - namespace: rook-ceph
+      server: "*"
 
   clusterResourceWhitelist:
     - group: "*"
