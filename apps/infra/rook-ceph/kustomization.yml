@@ -3,11 +3,20 @@ kind: Kustomization
 namespace: rook-ceph
 
 resources:
+  - external-secret.yml
   - ns.yml
 
 helmCharts:
+  # operator
   - name: rook-ceph
     repo: https://charts.rook.io/release
     version: v1.14.6
     releaseName: rook-ceph
     namespace: rook-ceph
+    # cluster
+  - name: rook-ceph-cluster
+    repo: https://charts.rook.io/release
+    version: v1.14.6
+    releaseName: rook-ceph-cluster
+    namespace: rook-ceph
+    valuesFile: cluster-values.yml

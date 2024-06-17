@@ -17,4 +17,4 @@ spec:
       path: apps/infra/rook-ceph
   syncPolicy:
     automated:
-      prune: true
+      prune: false
