@@ -3,6 +3,8 @@ toolbox:
 cephClusterSpec:
   dashboard:
     enabled: true
+    urlPrefix: /
+    ssl: false
   storage:
     useAllNodes: true
     deviceFilter: vdb
