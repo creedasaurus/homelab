@@ -60,10 +60,10 @@ cephFileSystems:
                   app.kubernetes.io/part-of: *cephFileSystemName
         resources:
           requests:
-            cpu: 100m
+            cpu: 80m
             memory: 500Mi
           limits:
-            memory: 1Gi
+            memory: 700Mi
     storageClass:
       enabled: true
       isDefault: false
@@ -99,10 +99,10 @@ cephObjectStores:
         port: 80
         resources:
           requests:
-            cpu: 100m
+            cpu: 90m
             memory: 500Mi
           limits:
-            memory: 1Gi
+            memory: 700Mi
         instances: 2
         priorityClassName: system-cluster-critical
       healthCheck:

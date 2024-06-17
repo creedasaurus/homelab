@@ -1,0 +1,11 @@
+csi:
+  enableLiveness: true
+  serviceMonitor:
+    enabled: false
+monitoring:
+  enabled: false
+resources:
+  requests:
+    memory: 128Mi # unchangable
+    cpu: 100m # unchangable
+  limits: {}
