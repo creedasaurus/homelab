@@ -31,8 +31,6 @@ spec:
       server: "*"
     - namespace: kube-system
       server: "*"
-    - namespace: minio-operator
-      server: "*"
     - namespace: rook-ceph
       server: "*"
 
