@@ -63,7 +63,7 @@ cephFileSystems:
             cpu: 100m
             memory: 500Mi
           limits:
-            memory: 2Gi
+            memory: 1Gi
     storageClass:
       enabled: true
       isDefault: false
