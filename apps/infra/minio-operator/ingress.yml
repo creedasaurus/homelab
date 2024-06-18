@@ -14,13 +14,6 @@ spec:
       services:
         - name: console
           port: 9090
-    # - kind: Rule
-    #   match: Host(`argocd.vulf.haus`) && Header(`Content-Type`, `application/grpc`)
-    #   priority: 11
-    #   services:
-    #     - name: argocd-server
-    #       port: 80
-    #       scheme: h2c
   tls:
     # shared wildcard cert for *.vulf.haus
     secretName: cm-shared-wildcard-vulfhaus-tls
