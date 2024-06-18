@@ -9,7 +9,7 @@ metadata:
 spec:
   project: infra
   destination:
-    namespace: argocd
+    namespace: minio-operator
     name: in-cluster
   sources:
     - repoURL: "https://github.com/creedasaurus/homelab.git"
