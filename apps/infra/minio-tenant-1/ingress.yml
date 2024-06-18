@@ -21,7 +21,7 @@ spec:
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
-  name: ingress
+  name: s3-ingress
   annotations:
     kubernetes.io/ingress.class: traefik-external
 
