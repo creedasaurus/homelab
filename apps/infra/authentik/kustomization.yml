@@ -6,6 +6,7 @@ resources:
   - namespace.yml
   - secrets.yml
   - database.yml
+  - scheduled-backup.yml
   - traefik-middleware.yml
 helmCharts:
   - name: authentik
