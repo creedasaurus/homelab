@@ -18,3 +18,31 @@ spec:
   superuserSecret:
     name: authentik-pg-superuser-creds
   enableSuperuserAccess: true
+
+  nodeMaintenanceWindow:
+    inProgress: false
+    reusePVC: true
+
+  monitoring:
+    enablePodMonitor: false
+
+  backup:
+    retentionPolicy: 30d
+    barmanObjectStore:
+      data:
+        compression: bzip2
+      wal:
+        compression: bzip2
+        maxParallel: 8
+      destinationPath: s3://cloudnative-pg/
+      endpointURL: https://s3.vulf.haus
+      # Note: serverName version needs to be inclemented
+      # when recovering from an existing cnpg cluster
+      serverName: &currentCluster authentik-pg-v1
+      s3Credentials:
+        accessKeyId:
+          name: authentik-pg-backup-creds
+          key: aws-access-key-id
+        secretAccessKey:
+          name: authentik-pg-backup-creds
+          key: aws-secret-access-key
