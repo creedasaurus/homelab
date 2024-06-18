@@ -8,13 +8,13 @@ tenant:
   name: vulfminio
   configuration:
     name: minio-secret
-  features:
-    bucketDNS: true
-    domains:
-      minio:
-        - https://s3.vulf.haus
-      console: https://minio.vulf.haus
-    enableSFTP: false
+  # features:
+  #   bucketDNS: true
+  #   domains:
+  #     minio:
+  #       - https://s3.vulf.haus
+  #     console: https://minio.vulf.haus
+  #   enableSFTP: false
   pools:
     ###
     # The number of MinIO Tenant Pods / Servers in this pool.
@@ -25,23 +25,23 @@ tenant:
       volumesPerServer: 2
       size: 32Gi
       storageClassName: directpv-min-io
-ingress:
-  api:
-    enabled: true
-    ingressClassName: "traefik"
-    annotations:
-      traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
-    tls:
-      - secretName: cm-shared-wildcard-vulfhaus-tls
+# ingress:
+#   api:
+#     enabled: false
+#     ingressClassName: "traefik"
+#     annotations:
+#       traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+#     tls:
+#       - secretName: cm-shared-wildcard-vulfhaus-tls
 
-    host: s3.vulf.haus
+#     host: s3.vulf.haus
 
-  console:
-    enabled: true
-    ingressClassName: "traefik"
-    annotations:
-      traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
-    tls:
-      - secretName: cm-shared-wildcard-vulfhaus-tls
+#   console:
+#     enabled: false
+#     ingressClassName: "traefik"
+#     annotations:
+#       traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+#     tls:
+#       - secretName: cm-shared-wildcard-vulfhaus-tls
 
-    host: minio.vulf.haus
+#     host: minio.vulf.haus
