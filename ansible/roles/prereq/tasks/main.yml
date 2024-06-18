@@ -69,3 +69,12 @@
           user_friendly_names yes
           find_multipaths yes
       }
+
+## install apparmor profile for minio's directpv
+- name: Download apparmor profile for directpv
+  get_url:
+    url: https://raw.githubusercontent.com/minio/directpv/v4.0.10/apparmor.profile
+    dest: /etc/apparmor.d/directpv
+    owner: root
+    group: root
+    mode: 0644
