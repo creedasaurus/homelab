@@ -15,6 +15,9 @@ tenant:
   #       - https://s3.vulf.haus
   #     console: https://minio.vulf.haus
   #   enableSFTP: false
+  certificate:
+    requestAutoCert: false
+
   pools:
     ###
     # The number of MinIO Tenant Pods / Servers in this pool.
