@@ -4,6 +4,7 @@ namespace: vulfminio
 resources:
   - namespace.yml
   - external-secrets.yml
+  - ingress.yml
 helmCharts:
   - name: tenant
     repo: https://operator.min.io
