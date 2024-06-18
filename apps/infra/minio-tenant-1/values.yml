@@ -1,10 +1,6 @@
 existingSecret:
   name: minio-secret
 tenant:
-  ###
-  # The Tenant name
-  #
-  # Change this to match your preferred MinIO Tenant name.
   name: vulfminio
   configuration:
     name: minio-secret
@@ -19,32 +15,8 @@ tenant:
     requestAutoCert: false
 
   pools:
-    ###
-    # The number of MinIO Tenant Pods / Servers in this pool.
-    # For standalone mode, supply 1. For distributed mode, supply 4 or more.
-    # Note that the operator does not support upgrading from standalone to distributed mode.
     - servers: 4
       name: vulf-pool-0
       volumesPerServer: 2
       size: 32Gi
       storageClassName: directpv-min-io
-# ingress:
-#   api:
-#     enabled: false
-#     ingressClassName: "traefik"
-#     annotations:
-#       traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
-#     tls:
-#       - secretName: cm-shared-wildcard-vulfhaus-tls
-
-#     host: s3.vulf.haus
-
-#   console:
-#     enabled: false
-#     ingressClassName: "traefik"
-#     annotations:
-#       traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
-#     tls:
-#       - secretName: cm-shared-wildcard-vulfhaus-tls
-
-#     host: minio.vulf.haus
