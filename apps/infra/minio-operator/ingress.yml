@@ -1,0 +1,26 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: minio-operator
+  annotations:
+    kubernetes.io/ingress.class: traefik-external
+
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`minio.vulf.haus`)
+      services:
+        - name: console
+          port: 9090
+    # - kind: Rule
+    #   match: Host(`argocd.vulf.haus`) && Header(`Content-Type`, `application/grpc`)
+    #   priority: 11
+    #   services:
+    #     - name: argocd-server
+    #       port: 80
+    #       scheme: h2c
+  tls:
+    # shared wildcard cert for *.vulf.haus
+    secretName: cm-shared-wildcard-vulfhaus-tls

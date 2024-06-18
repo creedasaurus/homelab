@@ -31,6 +31,8 @@ spec:
       server: "*"
     - namespace: kube-system
       server: "*"
+    - namespace: minio-operator
+      server: "*"
 
   clusterResourceWhitelist:
     - group: "*"
