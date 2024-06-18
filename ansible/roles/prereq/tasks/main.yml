@@ -15,6 +15,14 @@
       - sg3-utils
       - multipath-tools
       - scsitools
+      - lvm2
+
+# Rook-Ceph wants rbd modules loaded
+- name: Ensure rbd module loads
+  community.general.modprobe:
+    name: rbd
+    state: present
+    persistent: present
 
 # Longhorn wants uio and nvme modules loaded
 - name: Ensure uio module loads
