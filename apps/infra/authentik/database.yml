@@ -36,7 +36,7 @@ spec:
         maxParallel: 8
       destinationPath: s3://cloudnative-pg/
       endpointURL: https://s3.vulf.haus
-      # Note: serverName version needs to be inclemented
+      # Note: serverName version needs to be incremented
       # when recovering from an existing cnpg cluster
       serverName: &currentCluster authentik-pg-v1
       s3Credentials:
@@ -46,3 +46,14 @@ spec:
         secretAccessKey:
           name: authentik-pg-backup-creds
           key: aws-secret-access-key
+---
+apiVersion: postgresql.cnpg.io/v1
+kind: ScheduledBackup
+metadata:
+  name: authentik-pg
+spec:
+  schedule: "0 0 0 * * *"
+  immediate: true
+  backupOwnerReference: self
+  cluster:
+    name: authentik-pg
