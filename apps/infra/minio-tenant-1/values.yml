@@ -8,6 +8,13 @@ tenant:
   name: vulfminio
   configuration:
     name: minio-secret
+  features:
+    bucketDNS: true
+    domains:
+      minio:
+        - https://s3.vulf.haus
+      console: https://minio.vulf.haus
+    enableSFTP: false
   pools:
     ###
     # The number of MinIO Tenant Pods / Servers in this pool.
