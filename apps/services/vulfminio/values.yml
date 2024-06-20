@@ -22,4 +22,4 @@ tenant:
       storageClassName: directpv-min-io
 
   buckets:
-    - cloudnative-pg
+    - name: cloudnative-pg
