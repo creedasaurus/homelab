@@ -25,6 +25,8 @@ spec:
       server: "*"
     - namespace: vulfminio
       server: "*"
+    - namespace: immich
+      server: "*"
 
   clusterResourceWhitelist:
     - group: "*"
