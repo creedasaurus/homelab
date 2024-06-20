@@ -20,3 +20,6 @@ tenant:
       volumesPerServer: 2
       size: 32Gi
       storageClassName: directpv-min-io
+
+  buckets:
+    - cloudnative-pg

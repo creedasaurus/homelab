@@ -1,24 +1,25 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: database
+  name: authentik
   finalizers:
     - resources-finalizer.argocd.argoproj.io
   annotations:
-    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/sync-wave: "2"
 spec:
   project: apps
+  destination:
+    namespace: authentik
+    name: in-cluster
   source:
     repoURL: "https://github.com/creedasaurus/homelab.git"
-    path: apps/services/database/postgres
+    path: apps/services/authentik
     targetRevision: main
-  destination:
-    namespace: database
-    name: in-cluster
+
   syncPolicy:
     automated:
       prune: true
-      selfHeal: false
+      selfHeal: true
       allowEmpty: true
     syncOptions:
       - CreateNamespace=true

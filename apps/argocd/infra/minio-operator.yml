@@ -5,7 +5,7 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
   annotations:
-    argocd.argoproj.io/sync-wave: "-4"
+    argocd.argoproj.io/sync-wave: "-1"
 spec:
   project: infra
   destination:
@@ -15,9 +15,6 @@ spec:
     - repoURL: "https://github.com/creedasaurus/homelab.git"
       targetRevision: main
       path: apps/infra/minio-operator
-    - repoURL: "https://github.com/creedasaurus/homelab.git"
-      targetRevision: main
-      path: apps/infra/minio-tenant-1
   syncPolicy:
     automated:
       prune: true

@@ -19,6 +19,12 @@ spec:
       server: "*"
     - namespace: atuin
       server: "*"
+    - namespace: authentik
+      server: "*"
+    - namespace: database
+      server: "*"
+    - namespace: vulfminio
+      server: "*"
 
   clusterResourceWhitelist:
     - group: "*"

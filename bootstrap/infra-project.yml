@@ -21,8 +21,6 @@ spec:
       server: "*"
     - namespace: reflector
       server: "*"
-    - namespace: authentik
-      server: "*"
     - namespace: node-feature-discovery
       server: "*"
     - namespace: inteldeviceplugins-system
@@ -32,8 +30,6 @@ spec:
     - namespace: kube-system
       server: "*"
     - namespace: minio-operator
-      server: "*"
-    - namespace: vulfminio
       server: "*"
 
   clusterResourceWhitelist:
