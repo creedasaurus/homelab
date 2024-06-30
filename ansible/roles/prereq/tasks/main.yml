@@ -78,3 +78,24 @@
     owner: root
     group: root
     mode: 0644
+
+- name: Read device information
+  community.general.parted:
+    device: /dev/sda
+    unit: MiB
+  register: disk_info
+
+- name: Resize the volume group to use all available space on /dev/sda{{ disk_info.partitions | length }}
+  community.general.lvg:
+    vg: ubuntu-vg
+    pvs: /dev/sda{{ disk_info.partitions | length }}
+    pvresize: yes
+
+- name: Extend the logical volume to use all remaining space in the volume group
+  community.general.lvol:
+    vg: ubuntu-vg
+    lv: ubuntu-lv
+    size: +100%FREE
+
+- name: Resize filesystem
+  ansible.builtin.command: resize2fs /dev/ubuntu-vg/ubuntu-lv
