@@ -27,6 +27,10 @@ spec:
       server: "*"
     - namespace: immich
       server: "*"
+    - namespace: glauth
+      server: "*"
+    - namespace: home
+      server: "*"
 
   clusterResourceWhitelist:
     - group: "*"
