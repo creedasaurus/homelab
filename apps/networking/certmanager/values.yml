@@ -10,5 +10,3 @@ podDnsConfig:
     - "9.9.9.9"
 webhook:
   featureGates: "AdditionalCertificateOutputFormats=true"
-cainjector:
-  featureGates: "AdditionalCertificateOutputFormats=true"
