@@ -5,6 +5,9 @@ metadata:
   namespace: cert-manager
 spec:
   secretName: cm-shared-wildcard-vulfhaus-tls
+  additionalOutputFormats:
+    - type: CombinedPEM
+    - type: DER
   dnsNames:
     - "vulf.haus"
     - "*.vulf.haus"
