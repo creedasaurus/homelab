@@ -31,6 +31,8 @@ spec:
       server: "*"
     - namespace: home
       server: "*"
+    - namespace: photos
+      server: "*"
 
   clusterResourceWhitelist:
     - group: "*"
