@@ -21,6 +21,7 @@ spec:
   nodeMaintenanceWindow:
     inProgress: false
     reusePVC: true
+  resources: {}
   backup:
     retentionPolicy: 10d
     barmanObjectStore: &barmanObjectStore
