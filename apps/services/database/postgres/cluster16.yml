@@ -21,11 +21,6 @@ spec:
   nodeMaintenanceWindow:
     inProgress: false
     reusePVC: true
-  resources:
-    requests:
-      cpu: 500m
-    limits:
-      memory: 4Gi
   backup:
     retentionPolicy: 10d
     barmanObjectStore: &barmanObjectStore
