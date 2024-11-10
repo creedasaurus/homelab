@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Render manifests
-        uses: akuity/kargo-render-action@v0.1.0-rc.34
+        uses: ./.github/actions/kargo-render.yaml
         with:
           personalAccessToken: ${{ secrets.GITHUB_TOKEN }}
           targetBranch: env/homelab
