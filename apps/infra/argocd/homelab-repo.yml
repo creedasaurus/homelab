@@ -1,0 +1,25 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: homelab-repo
+  namespace: argocd
+spec:
+  secretStoreRef:
+    name: 1password-connect
+    kind: ClusterSecretStore
+  target:
+    name: homelab-repo
+    template:
+      metadata:
+        labels:
+          argocd.argoproj.io/secret-type: repository
+      data:
+        type: git
+        url: https://github.com/creedasaurus/homelab.git
+        username: creedasaurus
+        password: "{{ .accessToken }}"
+  data:
+    - secretKey: accessToken
+      remoteRef:
+        key: github
+        property: read-access-token
