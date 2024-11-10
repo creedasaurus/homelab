@@ -5,7 +5,7 @@ resources:
 helmCharts:
   - name: nvidia-device-plugin
     repo: https://nvidia.github.io/k8s-device-plugin
-    version: "0.14.5"
+    version: "0.17.0"
     releaseName: nvdp
     namespace: nvidia-device-plugin
     includeCRDs: true
