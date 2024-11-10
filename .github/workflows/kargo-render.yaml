@@ -20,5 +20,5 @@ jobs:
       - name: Render manifests
         uses: ./.github/actions/kargo-render
         with:
-          personalAccessToken: ${{ secrets.GITHUB_TOKEN }}
+          personalAccessToken: ${{ secrets.KARGO_RENDER_TOKEN }}
           targetBranch: env/homelab
