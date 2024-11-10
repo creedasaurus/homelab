@@ -1,0 +1,40 @@
+apiVersion: minio.min.io/v2
+kind: Tenant
+metadata:
+  labels:
+    app: minio
+  name: vulfminio
+  namespace: vulfminio
+spec:
+  buckets:
+  - name: cloudnative-pg
+  configuration:
+    name: minio-secret
+  features:
+    bucketDNS: true
+    domains:
+      console: https://minio.vulf.haus
+      minio:
+      - https://s3.vulf.haus
+    enableSFTP: false
+  image: quay.io/minio/minio:RELEASE.2024-08-03T04-33-23Z
+  imagePullPolicy: IfNotPresent
+  mountPath: /export
+  podManagementPolicy: Parallel
+  pools:
+  - name: vulf-pool-0
+    servers: 4
+    volumeClaimTemplate:
+      metadata:
+        name: data
+      spec:
+        accessModes:
+        - ReadWriteOnce
+        resources:
+          requests:
+            storage: 32Gi
+        storageClassName: directpv-min-io
+    volumesPerServer: 2
+  prometheusOperator: false
+  requestAutoCert: false
+  subPath: /data

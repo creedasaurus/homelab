@@ -1,0 +1,62 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: postgres16
+  namespace: database
+spec:
+  backup:
+    barmanObjectStore:
+      data:
+        compression: bzip2
+      destinationPath: s3://cloudnative-pg/
+      endpointURL: https://s3.vulf.haus
+      s3Credentials:
+        accessKeyId:
+          key: aws-access-key-id
+          name: cloudnative-pg-secret
+        secretAccessKey:
+          key: aws-secret-access-key
+          name: cloudnative-pg-secret
+      serverName: postgres16-v2
+      wal:
+        compression: bzip2
+        maxParallel: 8
+    retentionPolicy: 10d
+  bootstrap:
+    recovery:
+      source: postgres16-v1
+  enableSuperuserAccess: true
+  externalClusters:
+  - barmanObjectStore:
+      data:
+        compression: bzip2
+      destinationPath: s3://cloudnative-pg/
+      endpointURL: https://s3.vulf.haus
+      s3Credentials:
+        accessKeyId:
+          key: aws-access-key-id
+          name: cloudnative-pg-secret
+        secretAccessKey:
+          key: aws-secret-access-key
+          name: cloudnative-pg-secret
+      serverName: postgres16-v1
+      wal:
+        compression: bzip2
+        maxParallel: 8
+    name: postgres16-v1
+  imageName: ghcr.io/cloudnative-pg/postgresql:16.3-4
+  instances: 3
+  nodeMaintenanceWindow:
+    inProgress: false
+    reusePVC: true
+  postgresql:
+    parameters:
+      max_connections: "400"
+      shared_buffers: 256MB
+  primaryUpdateStrategy: unsupervised
+  resources: {}
+  storage:
+    size: 20Gi
+    storageClass: local-path
+  superuserSecret:
+    name: cloudnative-pg-secret
