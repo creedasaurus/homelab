@@ -1,0 +1,11 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "username": "renovate-bot[bot]",
+  "repositories": ["creedasaurus/homelab"],
+  "extends": [
+    "config:recommended"
+  ],
+  "platform": "github",
+  "onboarding": true,
+  "dependencyDashboardTitle": "Renovate Dashboard 🤖"
+}
