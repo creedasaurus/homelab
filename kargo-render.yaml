@@ -8,12 +8,6 @@ branchConfigs:
           kustomize:
             buildOptions: --enable-helm
         outputPath: apps/infra/argocd
-      cnpg:
-        configManagement:
-          path: apps/infra/cnpg
-          kustomize:
-            buildOptions: --enable-helm
-        outputPath: apps/infra/cnpg
       secrets:
         configManagement:
           path: apps/infra/secrets
