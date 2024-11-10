@@ -5,7 +5,7 @@ namespace: minio-operator
 helmCharts:
   - name: operator
     repo: https://operator.min.io
-    version: "5.0.17"
+    version: "6.0.4"
     releaseName: operator
     namespace: minio-operator
     includeCRDs: true
