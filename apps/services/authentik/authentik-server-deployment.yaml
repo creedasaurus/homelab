@@ -7,8 +7,8 @@ metadata:
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: authentik
     app.kubernetes.io/part-of: authentik
-    app.kubernetes.io/version: 2024.4.2
-    helm.sh/chart: authentik-2024.4.2
+    app.kubernetes.io/version: 2024.10.1
+    helm.sh/chart: authentik-2024.10.1
   name: authentik-server
   namespace: authentik
 spec:
@@ -22,15 +22,15 @@ spec:
   template:
     metadata:
       annotations:
-        checksum/secret: e6afa2c511b733cf8b1ef9aed11e2e6b40c39e109307490b4883169fb487327c
+        checksum/secret: b75b74b6eb022e5abb6a402a13180c91adf8d2419722d2d15a6a7349fd24b720
       labels:
         app.kubernetes.io/component: server
         app.kubernetes.io/instance: authentik
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/name: authentik
         app.kubernetes.io/part-of: authentik
-        app.kubernetes.io/version: 2024.4.2
-        helm.sh/chart: authentik-2024.4.2
+        app.kubernetes.io/version: 2024.10.1
+        helm.sh/chart: authentik-2024.10.1
     spec:
       affinity:
         podAntiAffinity:
@@ -58,7 +58,7 @@ spec:
             name: authentik
         - secretRef:
             name: authentik-secret
-        image: ghcr.io/goauthentik/server:2024.4.2
+        image: ghcr.io/goauthentik/server:2024.10.1
         imagePullPolicy: IfNotPresent
         livenessProbe:
           failureThreshold: 3
