@@ -8,7 +8,7 @@ resources:
 helmCharts:
   - name: tenant
     repo: https://operator.min.io
-    version: "5.0.15"
+    version: "5.0.17"
     releaseName: tenant
     namespace: vulfminio
     includeCRDs: true
