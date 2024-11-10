@@ -8,6 +8,6 @@ resources:
 helmCharts:
   - name: reflector
     repo: https://emberstack.github.io/helm-charts
-    version: v7.1.262
+    version: 7.1.288
     releaseName: reflector
     namespace: reflector
