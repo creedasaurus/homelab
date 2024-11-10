@@ -1,0 +1,8 @@
+configVersion: v1alpha1
+branchConfigs:
+  - pattern: env/test
+    appConfigs:
+      certmanager:
+        configManagement:
+          path: apps/networking/certmanager
+        outputPath: certmanager
