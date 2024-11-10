@@ -1,10 +1,52 @@
 configVersion: v1alpha1
 branchConfigs:
-  - pattern: env/test
+  - pattern: env/homelab
     appConfigs:
+      argocd:
+        configManagement:
+          path: apps/infra/argocd
+          kustomize:
+            buildOptions: --enable-helm
+        outputPath: apps/infra/argocd
+      cnpg:
+        configManagement:
+          path: apps/infra/cnpg
+          kustomize:
+            buildOptions: --enable-helm
+        outputPath: apps/infra/cnpg
+      secrets:
+        configManagement:
+          path: apps/infra/secrets
+          kustomize:
+            buildOptions: --enable-helm
+        outputPath: apps/infra/secrets
+      authentik:
+        configManagement:
+          path: apps/services/authentik
+          kustomize:
+            buildOptions: --enable-helm
+        outputPath: apps/services/authentik
+      postgres:
+        configManagement:
+          path: apps/services/database/postgres
+        outputPath: apps/services/database/postgres
       certmanager:
         configManagement:
           path: apps/networking/certmanager
           kustomize:
             buildOptions: --enable-helm
-        outputPath: certmanager
+        outputPath: apps/networking/certmanager
+      minio:
+        configManagement:
+          path: apps/services/vulfminio
+          kustomize:
+            buildOptions: --enable-helm
+        outputPath: apps/services/vulfminio
+      traefik:
+        configManagement:
+          path: apps/networking/traefik
+          kustomize:
+            buildOptions: --enable-helm
+        outputPath: apps/networking/traefik
+    prs:
+      enabled: true
