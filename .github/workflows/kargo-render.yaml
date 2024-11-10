@@ -1,0 +1,14 @@
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  render-test-manifests:
+    name: Render test manifests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Render manifests
+        uses: akuity/kargo-render-action@v0.1.0-rc.34
+        with:
+          personalAccessToken: ${{ secrets.GITHUB_TOKEN }}
+          targetBranch: env/test
