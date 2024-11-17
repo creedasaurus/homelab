@@ -1,0 +1,23 @@
+localpv-provisioner:
+  hostpathClass:
+    enabled: true
+openebs-crds:
+  csi:
+    volumeSnapshots:
+      enabled: true
+      keep: false
+zfs-localpv:
+  enabled: false
+lvm-localpv:
+  enabled: false
+mayastor:
+  enabled: false
+engines:
+  local:
+    lvm:
+      enabled: false
+    zfs:
+      enabled: false
+  replicated:
+    mayastor:
+      enabled: false
