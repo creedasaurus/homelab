@@ -6,5 +6,7 @@ namespace: database
 resources:
   - namespace.yml
   - cluster16.yml
+  - cluster17.yml
   - externalsecret.yml
   - scheduledbackup.yml
+  - scheduledbackup17.yml

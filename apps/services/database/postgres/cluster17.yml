@@ -1,0 +1,91 @@
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/postgresql.cnpg.io/cluster_v1.json
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: postgres17
+spec:
+  instances: 3
+  imageName: ghcr.io/cloudnative-pg/postgresql:17.1-1
+  primaryUpdateStrategy: unsupervised
+  storage:
+    size: 12Gi
+    storageClass: openebs-hostpath
+  superuserSecret:
+    name: cloudnative-pg-secret
+  enableSuperuserAccess: true
+  postgresql:
+    parameters:
+      max_connections: "250"
+      shared_buffers: 128MB
+  nodeMaintenanceWindow:
+    inProgress: false
+    reusePVC: true
+  resources: {}
+  backup:
+    retentionPolicy: 20d
+    barmanObjectStore: &barmanObjectStore
+      data:
+        compression: bzip2
+      wal:
+        compression: bzip2
+        maxParallel: 8
+      destinationPath: s3://cloudnative-pg/
+      endpointURL: https://s3.vulf.haus
+      # Note: serverName version needs to be inclemented
+      # when recovering from an existing cnpg cluster
+      serverName: &currentCluster postgres17-v1
+      s3Credentials:
+        accessKeyId:
+          name: cloudnative-pg-secret
+          key: aws-access-key-id
+        secretAccessKey:
+          name: cloudnative-pg-secret
+          key: aws-secret-access-key
+  # Note: previousCluster needs to be set to the name of the previous
+  # cluster when recovering from an existing cnpg cluster
+  bootstrap:
+    initdb:
+      import:
+        type: monolith
+        databases:
+          - atuin
+          - authentik
+          - autobrr
+          - bazarr
+          - prowlarr_main
+          - radarr_main
+          - readarr-cache
+          - readarr-log
+          - readarr-main
+          - sonarr_main
+        roles:
+          - atuin
+          - authentik
+          - autobrr
+          - bazarr
+          - prowlarr
+          - radarr
+          - readarr
+          - sonarr
+        source:
+          externalCluster: postgres16-v3
+    # recovery:
+    #   source: &previousCluster postgres16-v3
+  # Note: externalClusters is needed when recovering from an existing cnpg cluster
+  externalClusters:
+    # - name: *previousCluster
+    #   barmanObjectStore:
+    #     <<: *barmanObjectStore
+    #     serverName: *previousCluster
+    # externalClusters:
+    - name: postgres16-v3
+      connectionParameters:
+        # Use the correct IP or host name for the source database
+        host: postgres16-rw.database.svc.cluster.local
+        user: postgres
+        dbname: postgres
+        sslmode: require
+      password:
+        name: cloudnative-pg-secret
+        key: password
