@@ -99,3 +99,24 @@
 
 - name: Resize filesystem
   ansible.builtin.command: resize2fs /dev/ubuntu-vg/ubuntu-lv
+
+# provision extra non-os disk space
+- name: Create a ext4 filesystem on /dev/vdc
+  community.general.filesystem:
+    fstype: ext4
+    dev: /dev/vdc
+    resizefs: true
+
+- name: Unmount wrong space
+  ansible.posix.mount:
+    path: /var/lib/vulfspace
+    src: /dev/vdc
+    fstype: ext4
+    state: unmounted
+
+- name: Mount up for default openebs
+  ansible.posix.mount:
+    path: /var/openebs/local
+    src: /dev/vdc
+    fstype: ext4
+    state: mounted

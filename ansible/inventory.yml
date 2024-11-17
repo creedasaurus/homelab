@@ -11,6 +11,7 @@ k3s_cluster:
         192.168.66.26:
   vars:
     ansible_user: vulfadmin
+    ansible_ssh_private_key_file: "~/.ssh/id_ed25519_github"
     #     agent:
     #       hosts:
     #         192.16.35.12:
