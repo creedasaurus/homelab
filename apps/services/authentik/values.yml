@@ -19,7 +19,7 @@ server:
       - secretName: cm-shared-wildcard-vulfhaus-tls
   initContainers:
     - name: init-db
-      image: ghcr.io/onedr0p/postgres-init:16.3
+      image: ghcr.io/onedr0p/postgres-init:16.5
       envFrom:
         - secretRef:
             name: authentik-secret
@@ -27,7 +27,7 @@ server:
 worker:
   initContainers:
     - name: init-db
-      image: ghcr.io/onedr0p/postgres-init:16.3
+      image: ghcr.io/onedr0p/postgres-init:16.5
       envFrom:
         - secretRef:
             name: authentik-secret
