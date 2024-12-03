@@ -1,0 +1,26 @@
+[
+  {
+    "hostname": "vulf-kube-1",
+    "ip": "192.168.66.21"
+  },
+  {
+    "hostname": "vulf-kube-2",
+    "ip": "192.168.66.22"
+  },
+  {
+    "hostname": "vulf-kube-3",
+    "ip": "192.168.66.23"
+  },
+  {
+    "hostname": "vulf-kube-4",
+    "ip": "192.168.66.24"
+  },
+  {
+    "hostname": "vulf-kube-5",
+    "ip": "192.168.66.25"
+  },
+  {
+    "hostname": "vulf-kube-6",
+    "ip": "192.168.66.26"
+  }
+]
