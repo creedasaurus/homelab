@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prometheus-crds
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  annotations:
+    argocd.argoproj.io/sync-wave: "-10"
+spec:
+  project: infra
+  destination:
+    namespace: monitoring
+    name: in-cluster
+  source:
+    repoURL: https://github.com/prometheus-operator/prometheus-operator.git
+    targetRevision: v0.79.0
+    directory:
+      include: "bundle.yaml"
