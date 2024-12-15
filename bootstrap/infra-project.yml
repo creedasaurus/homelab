@@ -31,6 +31,8 @@ spec:
       server: "*"
     - namespace: minio-operator
       server: "*"
+    - namespace: monitoring
+      servier: "*"
 
   clusterResourceWhitelist:
     - group: "*"
