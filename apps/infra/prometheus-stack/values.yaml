@@ -1,0 +1,22 @@
+alertmanager:
+  alertmanagerSpec:
+    alertmanagerConfiguration:
+      name: alertmanager
+      global:
+        resolveTimeout: 5m
+    storage:
+      volumeClaimTemplate:
+        spec:
+          storageClassName: longhorn
+          resources:
+            requests:
+              storage: 1Gi
+prometheus:
+  prometheusSpec:
+    storage:
+      volumeClaimTemplate:
+        spec:
+          storageClassName: longhorn
+          resources:
+            requests:
+              storage: 20Gi
