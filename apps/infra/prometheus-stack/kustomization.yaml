@@ -4,6 +4,7 @@ namespace: monitoring
 
 resources:
   - namespace.yaml
+  - scrapeconfigs.yaml
 
 helmCharts:
   - name: kube-prometheus-stack
