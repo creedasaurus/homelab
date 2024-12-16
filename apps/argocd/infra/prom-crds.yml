@@ -5,18 +5,16 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
   annotations:
-    argocd.argoproj.io/sync-wave: "-10"
+    argocd.argoproj.io/sync-wave: "-15"
 spec:
   project: infra
   destination:
     namespace: monitoring
     name: in-cluster
-  source:
-    path: "."
-    repoURL: https://github.com/prometheus-operator/prometheus-operator.git
-    targetRevision: v0.79.0
-    kustomize:
-      namespace: monitoring
+  sources:
+    - repoURL: "https://github.com/creedasaurus/homelab.git"
+      targetRevision: main
+      path: apps/infra/prometheus-crds
   syncPolicy:
     automated:
       prune: true
