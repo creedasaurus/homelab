@@ -2,12 +2,27 @@
 apiVersion: monitoring.coreos.com/v1alpha1
 kind: ScrapeConfig
 metadata:
-  name: &name home-assistant
+  name: &name home-assistant-node
 spec:
   staticConfigs:
     - targets:
         - 192.168.66.174:9100
   metricsPath: /metrics
+  relabelings:
+    - action: replace
+      targetLabel: job
+      replacement: *name
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/monitoring.coreos.com/scrapeconfig_v1alpha1.json
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: ScrapeConfig
+metadata:
+  name: &name home-assistant
+spec:
+  staticConfigs:
+    - targets:
+        - 192.168.66.174:8123
+  metricsPath: /api/prometheus
   relabelings:
     - action: replace
       targetLabel: job
